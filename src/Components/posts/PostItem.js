@@ -1,6 +1,12 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 function PostItem(props) {
+  const { color, setColor } = useContext(ThemeContext);
+
+  useEffect(() => {
+    setColor("yellow");
+  });
   return (
     <Fragment>
       <div className="col-md-4 mb-5">
@@ -13,9 +19,7 @@ function PostItem(props) {
           <div className="card-body">
             <h5 className="card-title">{props.title}</h5>
             <p className="card-text">{props.body}</p>
-            <a href="#" className="btn btn-primary">
-              Go somewhere
-            </a>
+            <a className="btn btn-primary">Go somewhere</a>
           </div>
         </div>
       </div>

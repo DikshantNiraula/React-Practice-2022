@@ -24,11 +24,9 @@ function TodoList() {
     // alert("ok");
     // return "ok";
     console.log(item);
-    // {
-    //   todoitems
-    //     .filter((todoitem) => todoitem.id != item)
-    //     .map((todoitems) => );
-    // }
+
+    setTodoItem(todoitems.filter((todoitem) => todoitem.id !== item));
+    setTodoCount(todocount - 1);
   };
 
   const addTodoItem = (newTodo) => {
@@ -37,10 +35,11 @@ function TodoList() {
     setTodoCount(todocount + 1);
   };
 
-  const completedCheck = (itemId) => {
-    console.log(itemId);
-    let completedItem = todoitems[itemId];
-    completedItem.completed = 1;
+  const completedCheck = (item) => {
+    // console.log(item);
+    let completedItem = todoitems[item.id];
+    // console.log(completedItem.completed);
+    // setTodoItem({ ...completedItem, ...(completedItem.completed = true) });
   };
 
   return (
@@ -61,7 +60,7 @@ function TodoList() {
                   key={todoitem.id}
                   data={todoitem}
                   deleteTodoItem={deleteTodoItem}
-                  //   completedCheck={completedCheck}
+                  completedCheck={completedCheck}
                 />
               );
             })}

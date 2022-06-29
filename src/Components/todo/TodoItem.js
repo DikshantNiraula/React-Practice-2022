@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-function TodoItem({ data, deleteTodoItem }) {
+function TodoItem({ data, deleteTodoItem, completedCheck }) {
   const { id, title, completed } = data;
   //   console.log(props);
   return (
@@ -14,7 +14,7 @@ function TodoItem({ data, deleteTodoItem }) {
                   type="checkbox"
                   aria-label="Checkbox for following text input"
                   //   value={completed}
-                  //   onChange={() => completedCheck(id)}
+                  onChange={() => completedCheck(data)}
                   defaultChecked={completed}
                 />
               </div>
